@@ -6,8 +6,18 @@ import { FaShekelSign } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './Header.css';
-import ReactSwitch from 'react-switch';
+
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { Image } from 'react-bootstrap';
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
     return (
         <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
             <Container className="d-lg-flex justify-content-lg-between" >
@@ -23,8 +33,17 @@ const Header = () => {
                         <Nav.Link><Link to="/faq"><Button variant="light">FAQ</Button></Link></Nav.Link>
                         <Nav.Link><Link to="/blog"><Button variant="light">Blogs</Button></Link></Nav.Link>
 
-                        <Nav.Link><Link to="/login"><Button variant="light">Log in</Button></Link></Nav.Link>
-                        <Nav.Link><ReactSwitch></ReactSwitch></Nav.Link>
+                        <Nav.Link>
+                            {
+                                user?.uid ? <>
+                                    <Button className='me-3' variant="light" onClick={handleLogOut}>Log Out</Button>
+                                    <Image roundedCircle style={{ height: '30px' }} src={user?.photoURL}></Image>
+
+                                </> :
+                                    <Link to="/login"><Button variant="light">Log in</Button></Link>
+                            }
+                        </Nav.Link>
+                        <Nav.Link></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
 

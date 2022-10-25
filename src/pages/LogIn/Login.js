@@ -3,19 +3,51 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Form from 'react-bootstrap/Form';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { GoogleAuthProvider } from "firebase/auth";
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+
 
 
 const Login = () => {
+    const { Login, GoogleSignIn } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const navigate = useNavigate();
+    const hanldeLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        Login(email, password)
+            .then(result => {
+                form.reset();
+                navigate('/');
+            })
+            .catch(error => console.log(error))
+
+    }
+    const googleLogin = () => {
+        GoogleSignIn(googleProvider)
+            .then(result => {
+                const user = result.user;
+            })
+            .catch(error => console.log(error))
+    }
+
+    const githubLogin = () => {
+
+    }
     return (
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4 col-md-4"></div>
-                <div class="col-sm-4 col-md-4 m-1">
+        <div className="container">
+            <div className="row">
+                <div className="col-sm-4 col-md-4"></div>
+                <div className="col-sm-4 col-md-4 m-1">
                     <div className="">
                         <h4 className="my-4 text-center">Log into Techdemy</h4>
-                        <Form className="">
+                        <Form onSubmit={hanldeLogin}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control name="email" type="email" placeholder="Enter email" required />
@@ -37,8 +69,8 @@ const Login = () => {
                                 <hr className='w-50'></hr>
                             </div>
                             <ButtonGroup vertical className="d-flex justify-content-center align-items-center">
-                                <Button className="mb-3" variant="outline-success"><FaGoogle></FaGoogle>  Log in with Google</Button>
-                                <Button variant="outline-success" ><FaGithub></FaGithub>  Log in with Github</Button>
+                                <Button onClick={googleLogin} className="mb-3" variant="outline-success"><FaGoogle></FaGoogle>  Log in with Google</Button>
+                                <Button onClick={githubLogin} variant="outline-success" ><FaGithub></FaGithub>  Log in with Github</Button>
                             </ButtonGroup>
                         </div>
                         <div className="d-flex my-2">
@@ -52,7 +84,7 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-4"></div>
+                <div className="col-sm-4 col-md-4"></div>
             </div>
 
         </div >
