@@ -33,11 +33,9 @@ export const routes = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                pat: '/register',
+                path: '/register',
                 element: <Register></Register>
             }
-
-
 
         ]
     }

@@ -9,7 +9,7 @@ import './Header.css';
 import ReactSwitch from 'react-switch';
 const Header = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="danger" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
             <Container className="d-lg-flex justify-content-lg-between" >
                 <Navbar.Brand href="#home">Techdemy <FaShekelSign></FaShekelSign> </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
