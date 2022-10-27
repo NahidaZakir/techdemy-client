@@ -1,11 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
     const { SignUp } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
@@ -17,9 +21,13 @@ const Register = () => {
         SignUp(email, password)
             .then(result => {
                 form.reset();
+                setError('');
+                navigate('/login');
 
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                setError(error.message);
+            });
     }
     return (
 
@@ -50,6 +58,9 @@ const Register = () => {
                                 Register
                             </Button>
                         </div>
+                        <Form.Text>
+                            {error}
+                        </Form.Text>
 
                     </Form>
                 </div>

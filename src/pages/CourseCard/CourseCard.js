@@ -8,10 +8,7 @@ const CourseCard = ({ details }) => {
     const { description, title, image, id } = details;
     return (
         <div className="w-75 mx-auto" >
-            <div className='text-center mx-auto my-3'>
-                <Link to={`/checkout/${id}`}><Button variant="success">Get Premium Access</Button></Link>
 
-            </div>
 
             <div className="d-flex justify-content-between my-3" >
                 <h2 >Course Details </h2>
@@ -29,6 +26,10 @@ const CourseCard = ({ details }) => {
                         </Card.Text>
                     </Card.Body>
                 </Card>
+            </div>
+            <div className='text-center mx-auto my-3'>
+                <Link to={`/checkout/${id}`}><Button variant="success">Get Premium Access</Button></Link>
+
             </div>
         </div >
     );

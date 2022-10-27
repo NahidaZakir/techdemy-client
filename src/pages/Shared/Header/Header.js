@@ -2,7 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { FaShekelSign } from "react-icons/fa";
+import { FaShekelSign, FaUser } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './Header.css';
@@ -37,7 +37,11 @@ const Header = () => {
                             {
                                 user?.uid ? <>
                                     <Button className='me-3' variant="light" onClick={handleLogOut}>Log Out</Button>
-                                    <Image roundedCircle style={{ height: '30px' }} src={user?.photoURL}></Image>
+                                    {
+                                        user?.photoURL ? <Image roundedCircle style={{ height: '30px' }} src={user?.photoURL}></Image> : <FaUser></FaUser>
+                                    }
+
+
 
                                 </> :
                                     <Link to="/login"><Button variant="light">Log in</Button></Link>

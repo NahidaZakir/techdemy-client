@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider } from "firebase/auth";
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { useState } from 'react';
 
 
 
@@ -16,7 +17,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-
+    const [error, setError] = useState('');
 
     const hanldeLogin = event => {
         event.preventDefault();
@@ -27,9 +28,12 @@ const Login = () => {
         Login(email, password)
             .then(result => {
                 form.reset();           
+                setError('');
                 navigate(from, { replace: true });
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                setError(error.message);
+            })
 
     }
     const googleLogin = () => {
@@ -65,6 +69,9 @@ const Login = () => {
                             <div className='d-flex justify-content-center'> <Button variant="success" type="submit" size="lg">
                                 Log In
                             </Button></div>
+                            <Form.Text className="text-danger">
+                                {error}
+                            </Form.Text>
 
                         </Form>
                         <div>
