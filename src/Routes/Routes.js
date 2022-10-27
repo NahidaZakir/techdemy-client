@@ -10,6 +10,7 @@ import EachCategory from "../pages/EachCategory/EachCategory";
 import Home from "../pages/Home/Home";
 import Login from "../pages/LogIn/Login";
 import Register from "../pages/LogIn/Register";
+import PageNotFound from "../pages/PageNotFound/PageNotFound";
 import Ques from "../pages/Ques/Ques";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 export const routes = createBrowserRouter([
@@ -58,5 +59,9 @@ export const routes = createBrowserRouter([
             }
 
         ]
+    },
+    {
+        path: "*",
+        element: <PageNotFound></PageNotFound>
     }
 ])
