@@ -5,7 +5,7 @@ import CourseSumCard from '../CourseSumCard/CourseSumCard';
 const CourseNav = () => {
     const [allCourses, setCourses] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/courses')
+        fetch('https://techdemy-server.vercel.app/courses')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, []);

@@ -29,27 +29,27 @@ export const routes = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <EachCategory></EachCategory>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://techdemy-server.vercel.app/category/${params.id}`)
             },
             {
                 path: '/courses/:id',
                 element: <Details></Details>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://techdemy-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://techdemy-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/faq',
                 element: <Ques></Ques>,
-                loader: () => fetch('http://localhost:5000/faq')
+                loader: () => fetch('https://techdemy-server.vercel.app/faq')
             },
             {
                 path: '/blogs',
                 element: <Blog></Blog>,
-                loader: () => fetch('http://localhost:5000/blogs')
+                loader: () => fetch('https://techdemy-server.vercel.app/blogs')
             },
             {
                 path: '/login',
