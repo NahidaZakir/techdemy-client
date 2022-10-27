@@ -2,14 +2,11 @@ import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
 
 import Categories from '../Categories/Categories';
-import CourseNav from '../CourseNav/CourseNav';
+import Category from '../Category/Category';
 
-
-
-const Courses = () => {
-
+const EachCategory = () => {
     return (
-        <div className='my-5'>
+        <div className="my-5">
             <Container>
                 <Row>
                     <Col lg="3" className="d-none d-lg-block">
@@ -17,7 +14,7 @@ const Courses = () => {
                         <Categories></Categories>
                     </Col>
                     <Col lg="9">
-                        <CourseNav></CourseNav>
+                        <Category></Category>
                     </Col>
                 </Row>
             </Container>
@@ -25,4 +22,4 @@ const Courses = () => {
     );
 };
 
-export default Courses;
+export default EachCategory;
