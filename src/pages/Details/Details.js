@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
 import CourseCard from '../CourseCard/CourseCard';
-import CourseSumCard from '../CourseSumCard/CourseSumCard';
 
 const Details = () => {
     const detailInfo = useLoaderData();

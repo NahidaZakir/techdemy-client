@@ -5,7 +5,7 @@ import { useLoaderData } from 'react-router';
 
 const CheckOut = () => {
     const checkInfo = useLoaderData();
-    const { id, title } = checkInfo;
+    const { title } = checkInfo;
     return (
         <div className='text-center'>
             <h1>Checkout for Course: </h1>

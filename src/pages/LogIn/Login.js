@@ -40,7 +40,6 @@ const Login = () => {
     const googleLogin = () => {
         UserSignIn(googleProvider)
             .then(result => {
-                const user = result.user;
                 navigate(from, { replace: true });
             })
             .catch(error => console.log(error))
@@ -49,7 +48,6 @@ const Login = () => {
     const githubLogin = () => {
         UserSignIn(githubProvider)
             .then(result => {
-                const user = result.user;
                 navigate(from, { replace: true });
             })
             .catch(error => console.log(error))
