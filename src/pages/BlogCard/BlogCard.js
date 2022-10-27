@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-const BlogCard = ({ blogInfo }) => {
-    const { question, answer } = blogInfo;
+const BlogCard = ({ info }) => {
+    const { question, answer } = info;
     return (
         <div className='my-5'>
             <Card>

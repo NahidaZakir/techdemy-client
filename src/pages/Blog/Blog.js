@@ -8,7 +8,7 @@ const Blog = () => {
         <div className="w-75 mx-auto">
             <h2 className="text-success my-3 text-center" > Techdemy Blogs</h2>
             {
-                allblogs.map(s_blog => <BlogCard key={s_blog.id} blogInfo={s_blog}></BlogCard>)
+                allblogs.map(s_blog => <BlogCard key={s_blog.id} info={s_blog}></BlogCard>)
             }
         </div>
     );

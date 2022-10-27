@@ -43,7 +43,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/faq',
-                element: <Ques></Ques>
+                element: <Ques></Ques>,
+                loader: () => fetch('http://localhost:5000/faq')
             },
             {
                 path: '/blogs',
