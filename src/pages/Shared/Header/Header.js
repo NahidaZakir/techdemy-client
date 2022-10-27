@@ -49,7 +49,7 @@ const Header = () => {
                                 user?.uid ? <>
                                     <Button className='me-3' variant="light" onClick={handleLogOut}>Log Out</Button>
                                     {
-                                        user?.photoURL ? <Image roundedCircle style={{ height: '30px' }} src={user?.photoURL}></Image> : <FaUser></FaUser>
+                                        user?.photoURL ? <Image roundedCircle style={{ height: '30px' }} src={user?.photoURL} title={user?.displayName}></Image> : <FaUser></FaUser>
                                     }
 
 
