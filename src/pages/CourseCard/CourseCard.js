@@ -19,9 +19,9 @@ const CourseCard = ({ details }) => {
             <div ref={ref} className="my-4">
                 <Card>
                     <Card.Img variant="top" src={image} />
-                    <Card.Body >
-                        <Card.Title className="text-center">{title}</Card.Title>
-                        <Card.Text>
+                    <Card.Body>
+                        <Card.Title className="text-center text-success">{title}</Card.Title>
+                        <Card.Text className="text-success">
                             {description}
                         </Card.Text>
                     </Card.Body>

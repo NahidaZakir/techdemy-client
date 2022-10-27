@@ -2,7 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { FaShekelSign, FaUser } from "react-icons/fa";
+import { FaLightbulb, FaShekelSign, FaToggleOff, FaToggleOn, FaUser } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './Header.css';
@@ -11,7 +11,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { Image } from 'react-bootstrap';
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, theme, toggle, dark } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()
@@ -32,6 +32,17 @@ const Header = () => {
                         <Nav.Link><Link to="/courses"><Button variant="light">Courses</Button></Link></Nav.Link>
                         <Nav.Link><Link to="/faq"><Button variant="light">FAQ</Button></Link></Nav.Link>
                         <Nav.Link><Link to="/blogs"><Button variant="light">Blogs</Button></Link></Nav.Link>
+                        <Nav.Link><Button
+                            variant="success"
+                            onClick={toggle}
+                            style={{
+                                backgroundColor: theme.backgroundColor,
+                                color: theme.color,
+                                outline: 'none'
+                            }}
+                        >
+                            {!dark ? 'Dark Mode' : 'Light Mode'}
+                        </Button></Nav.Link>
 
                         <Nav.Link>
                             {

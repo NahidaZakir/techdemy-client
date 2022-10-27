@@ -5,9 +5,9 @@ const BlogCard = ({ info }) => {
     return (
         <div className='my-5'>
             <Card>
-                <Card.Header>{question}</Card.Header>
+                <Card.Header className="text-success">{question}</Card.Header>
                 <Card.Body>
-                    <Card.Text>
+                    <Card.Text className="text-success">
                         {answer}
                     </Card.Text>
 

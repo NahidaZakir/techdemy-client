@@ -1,3 +1,37 @@
+
+
+
+# Features 
+1. It has use log in methods in 3 way: using email/password, github login and google login
+2. User can download pdf version of course details
+3. User can filter each category and find their interested courses in the category
+4. user can read about FAQs and Blogs in specific pages
+5. It has user checkout option as well for future use when there will be paid courses option
+
+
+
+
+
+
+
+
+# technology used
+1. React
+2. React Bootstrap
+3. Bootstrap
+4. firebase
+5. React Icons
+6. Express
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

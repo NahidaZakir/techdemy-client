@@ -10,7 +10,7 @@ const CourseSumCard = ({ courseInfo }) => {
             <Card className="w-75 my-2">
                 <Card.Img variant="top" src={image} />
                 <Card.Body>
-                    <Card.Text>
+                    <Card.Text className="text-success">
                         <div className="d-flex justify-content-between my-0">
 
                             <Card.Text>Students Enrolled: {students} </Card.Text>
@@ -22,8 +22,8 @@ const CourseSumCard = ({ courseInfo }) => {
 
                         </div>
                     </Card.Text>
-                    <Card.Title className="my-0">{title}</Card.Title>
-                    <Card.Text>
+                    <Card.Title className="my-0 text-success">{title}</Card.Title>
+                    <Card.Text className="text-success">
                         <div className="d-flex justify-content-between ">
                             <Card.Text>Teacher: {teacher}</Card.Text>
                             <div className="d-flex">
